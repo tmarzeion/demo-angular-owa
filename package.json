@@ -4,41 +4,46 @@
   "description": "Angular Open Web App demo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tmarzeion/demo-angular-owa"
+    "url": "https://github.com/tomek/openmrs-owa-demoAngularOwa"
   },
   "dependencies": {
-	
-	
-  "angular": "^1.5.3",
-  "angular-ui-router": "^0.3.0",
-  "openmrs-contrib-uicommons": "^0.3.29"
-  
-  
-},
+    "angular": "^1.5.3",
+    "angular-ui-router": "^0.3.0",
+    "openmrs-contrib-uicommons": "^0.3.29"
+  },
   "devDependencies": {
-    
-    "ng-annotate-webpack-plugin":"0.1.3",
-    
+    "angular-mocks": "1.5",
+    "archiver": "^1.0.0",
     "babel-core": "^6.2.1",
     "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.1.18",
-    
+    "babel-preset-es2015": "^6.18.0",
     "browser-sync": "^2.11.1",
     "browser-sync-webpack-plugin": "^1.0.1",
+    "chai": "^3.5.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.23.1",
+    "eslint": "^3.13.1",
+    "eslint-config-defaults": "^9.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.24.1",
+    "jasmine-core": "2.3.4",
+    "karma": "0.13.19",
+    "karma-chrome-launcher": "0.2.0",
+    "karma-jasmine": "0.3.6",
+    "karma-mocha-reporter": "1.1.1",
+    "karma-webpack": "1.7.0",
+    "mocha": "^3.2.0",
+    "ng-annotate-webpack-plugin": "0.1.3",
+    "on-build-webpack": "^0.1.0",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
+    "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13",
-    "yargs": "^4.3.1",
-    "archiver": "^1.0.0",
-    "on-build-webpack": "^0.1.0"
+    "yargs": "^4.3.1"
   },
   "scripts": {
     "clean": "rimraf dist && rimraf coverage*",
@@ -47,7 +52,10 @@
     "build:prod": "npm run test && npm run build",
     "build:deploy": "webpack --progress --colors --mode=deploy --target=web",
     "watch": "webpack --progress --colors --watch --mode=deploy --target=web",
-    "test": "echo \"Error: no test specified\""
+    "lint": "eslint app/",
+    "mocha": "mocha --compilers js:babel-register ./app/**/*.test.js",
+    "test": "npm run lint && npm run mocha && karma start --single-run",
+    "karma:debug": "karma start"
   },
   "keywords": [
     "OpenMRS",
@@ -55,6 +63,6 @@
     "Web",
     "App"
   ],
-  "author": "tmarzeion",
+  "author": "tomek",
   "license": "MPL-2.0"
 }
