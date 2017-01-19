@@ -1,0 +1,19 @@
+{
+  "version": "0.1.0",
+  "name": "demoAngularOwa",
+  "description": "Angular Open Web App demo",
+  "launch_path": "index.html",
+  "icons": {
+    "48": "/img/omrs-button.png"
+  },
+  "developer": {
+    "name": "tmarzeion",
+    "url": "https://github.com/tmarzeion/demo-angular-owa"
+  },
+  "default_locale": "en",
+    "activities": {
+      "openmrs": {
+        "href": "*"
+      }
+    }
+}
