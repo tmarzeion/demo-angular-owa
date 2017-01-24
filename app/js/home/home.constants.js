@@ -1,0 +1,1 @@
+export const DEFAULT_LIST = ['THIS', 'IS', 'LIST'];

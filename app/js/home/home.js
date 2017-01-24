@@ -1,7 +1,9 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import homeComponent from './home.component.js';
-import uicommons from 'openmrs-contrib-uicommons';
+import ToDo from './todo-service/todo.service';
+
+import { DEFAULT_LIST } from './home.constants.js';
 
 let homeModule = angular.module('home', [ uiRouter, 'openmrs-contrib-uicommons'])
     .config(($stateProvider, $urlRouterProvider) => {
@@ -13,6 +15,8 @@ let homeModule = angular.module('home', [ uiRouter, 'openmrs-contrib-uicommons']
             template: "<home></home>"
         })
     })
+    .service('ToDo', ToDo)
+    .constant('initialList', DEFAULT_LIST)
     .component('home', homeComponent);
 
 export default homeModule;
